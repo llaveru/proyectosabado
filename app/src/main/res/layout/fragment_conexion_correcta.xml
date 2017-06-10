@@ -1,0 +1,22 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1db0ba"
+    tools:context="com.example.hpasarin.sistemalogin2.ConexionCorrecta">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/tvUsuarioCorrecto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="#bab21d"
+        android:text="usuario correcto/incorrecto" />
+
+
+    <TextView
+        android:id="@+id/tvMensajeEntrada"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</FrameLayout>
