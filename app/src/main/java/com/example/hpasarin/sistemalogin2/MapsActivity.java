@@ -131,8 +131,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     Polyline ruta = mapa.addPolyline(
                             new PolylineOptions()
                                     .addAll(arrayPuntosRuta)
-                                    .color(Color.GREEN)
-                                    .width(5)
+                                    .color(Color.BLACK)
+                                    .width(8)
                     );
 
                     //CENTRO EL MAPA EN LA ULTIMA POSICION DEL ARRAY //
@@ -140,7 +140,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                         Log.d("prueba","el ultimo punto es: "+arrayPuntosRuta.size());
                         //el último parámetro es el zoom, 1 es lejano 20 cercano
-                        actualizacionCamara =CameraUpdateFactory.newLatLngZoom(arrayPuntosRuta.get(arrayPuntosRuta.size()-1),16);
+                        actualizacionCamara =CameraUpdateFactory.newLatLngZoom(arrayPuntosRuta.get(0),16);
                         mapa.animateCamera(actualizacionCamara);
 
 
