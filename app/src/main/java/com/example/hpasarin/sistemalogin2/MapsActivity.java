@@ -120,7 +120,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                     cameraPosition = new CameraPosition.Builder()
                             .target(arrayPuntosRuta.get(0))
-                            .zoom(12)
+                            .zoom(20)
                             .bearing(300)
                             .tilt(30)
                             .build();
@@ -139,8 +139,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     if  (arrayPuntosRuta.size()>0) {
 
                         Log.d("prueba","el ultimo punto es: "+arrayPuntosRuta.size());
-
-                        actualizacionCamara =CameraUpdateFactory.newLatLngZoom(arrayPuntosRuta.get(arrayPuntosRuta.size()-1),12);
+                        //el último parámetro es el zoom, 1 es lejano 20 cercano
+                        actualizacionCamara =CameraUpdateFactory.newLatLngZoom(arrayPuntosRuta.get(arrayPuntosRuta.size()-1),16);
                         mapa.animateCamera(actualizacionCamara);
 
 
@@ -372,7 +372,7 @@ class TareaPesada extends AsyncTask<String,String,String> {
         return buffer.toString();
     }
 
-    
+
 
 
     @Override
