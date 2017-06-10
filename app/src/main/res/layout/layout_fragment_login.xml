@@ -3,9 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/activity_horizontal_margin"
-    android:background="#9c0"
+    android:background="#93a45f"
     android:id="@+id/contenedorLogin"
-    android:foreground="@android:color/white"
+    android:foreground="@color/colorTextoToolbar"
     android:orientation="vertical">
 
 
@@ -29,9 +29,17 @@
 
     <Button
         android:text="Login"
-        style="@style/Base.TextAppearance.AppCompat.Button"
+        android:height="50dp"
+        android:background="@color/fondoBoton"
+        android:textColor="@color/colorTextoBoton"
         android:id="@+id/botonLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/autobus"
+        />
 
 </LinearLayout>

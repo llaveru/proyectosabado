@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#c9c4d240"
+    android:background="#59601e"
     tools:context="com.example.hpasarin.sistemalogin2.FragmentObtenerLista">
 
 
