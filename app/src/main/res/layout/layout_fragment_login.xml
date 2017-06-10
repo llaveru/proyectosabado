@@ -3,26 +3,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/activity_horizontal_margin"
-    android:background="#30a"
+    android:background="#9c0"
     android:id="@+id/contenedorLogin"
     android:foreground="@android:color/white"
     android:orientation="vertical">
 
 
     <EditText
+        android:layout_gravity="center_horizontal"
         android:hint="usuario"
+        android:textAlignment="center"
+        android:textSize="50px"
         android:id="@+id/tvUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
+        android:textSize="50px"
+        android:layout_gravity="center_horizontal"
         android:hint="1234"
+        android:textAlignment="center"
         android:id="@+id/tvPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
         android:text="Login"
+        style="@style/Base.TextAppearance.AppCompat.Button"
         android:id="@+id/botonLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

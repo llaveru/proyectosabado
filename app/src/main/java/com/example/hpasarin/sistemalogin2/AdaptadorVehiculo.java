@@ -42,6 +42,8 @@ public class AdaptadorVehiculo extends ArrayAdapter<Vehiculo> {
             holder.imgIcon = (ImageView)row.findViewById(R.id.imgIcon);
             holder.txtTitle = (TextView)row.findViewById(R.id.txtTitle);
             holder.txtTipo = (TextView)row.findViewById(R.id.txtTipo);
+            holder.txtIdVehiculo= (TextView) row.findViewById(R.id.txtIdvehiculo);
+
             row.setTag(holder);
         }
         else
@@ -53,6 +55,7 @@ public class AdaptadorVehiculo extends ArrayAdapter<Vehiculo> {
         holder.txtTitle.setText(vehiculo.title);
         holder.imgIcon.setImageResource(vehiculo.icon);
         holder.txtTipo.setText(vehiculo.tipo);
+        holder.txtIdVehiculo.setText(vehiculo.idVehiculo);
         return row;
     }
 
@@ -61,5 +64,6 @@ public class AdaptadorVehiculo extends ArrayAdapter<Vehiculo> {
         ImageView imgIcon;
         TextView txtTitle;
         TextView txtTipo;
+        TextView txtIdVehiculo;
     }
 }
