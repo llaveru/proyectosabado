@@ -85,8 +85,8 @@ public class ConexionCorrecta extends Fragment {
 //                tvUsuariocorrecto.setText("Contraseña o usuario erróneos");
 
             }else
-        tvUsuariocorrecto.setText(this.Usuario);
-        mensaje.setText(Mensaje);
+       // tvUsuariocorrecto.setText(this.Usuario);
+        //mensaje.setText(Mensaje);
 
 
 
