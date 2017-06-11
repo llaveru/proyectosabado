@@ -82,17 +82,19 @@ public class ConexionCorrecta extends Fragment {
         TextView mensaje = (TextView) this.getActivity().findViewById(R.id.tvPass);
 
             if (!Mensaje.equals("Identificado correctamente")) {
-                tvUsuariocorrecto.setText("Contraseña o usuario erróneos");
+//                tvUsuariocorrecto.setText("Contraseña o usuario erróneos");
 
             }else
-        tvUsuariocorrecto.setText("bienvenido "+this.Usuario);
+        tvUsuariocorrecto.setText(this.Usuario);
         mensaje.setText(Mensaje);
-        tvUsuariocorrecto = (TextView) getActivity().findViewById(R.id.tvLogeadoComo);
+
+
+
+        tvUsuarioLogeado = (TextView) vista.findViewById(R.id.tvUser);
+        tvUsuariocorrecto = (TextView) vista.findViewById(R.id.tvLogeadoComo);
         guardarUser();
-
-
-        tvUsuarioLogeado = (TextView) getActivity().findViewById(R.id.tvLogeadoComo);
-
+        //se pone el nombre de la persona logeada en la nav-header_main
+//        tvUsuarioLogeado.setText(prefs.getString("id","haga login para ver sus vehiculos"));
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_conexion_correcta, container, false);
     }
@@ -108,11 +110,10 @@ public class ConexionCorrecta extends Fragment {
         Log.d("PRUEBA","preferencias: "+getActivity().getPreferences(Context.MODE_APPEND).getAll().toString());
 
         //devolvera 99 si no encuentra ningun par key-value para id seria el valor por defecto
-        getActivity().setTitle("identificado como "+(prefs.getString("id", "99")));
+        getActivity().setTitle("identificado como: "+(prefs.getString("id", "(sin identificar)")));
         //opUbicacionFichero.setChecked(prefs.getBoolean("GuardarSDCard", true));
 
-        //se pone el nombre de la persona logeada en la nav-header_main
-        tvUsuarioLogeado.setText(prefs.getString("id","haga login para ver sus vehiculos"));
+
     }
 
 }

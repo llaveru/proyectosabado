@@ -41,18 +41,22 @@ import java.util.List;
     String enteredUsername="";
     TextView tvUserdelUI;
 
+    Boolean loginCorrecto =false;
+
     public AsyncDataClass(Activity activity) {
-    this.activityUI=activity;
+    this.activityUI=activity; //asi recogemos la actividad que llama a esta clase asíncrona
     }
 
     @Override
     protected String doInBackground(String... params) {
         Log.d("PRUEBA","CORRIENDO tarea asincrona");
 
+
         HttpParams httpParameters = new BasicHttpParams();
         HttpConnectionParams.setConnectionTimeout(httpParameters, 5000);
         HttpConnectionParams.setSoTimeout(httpParameters, 5000);
 
+        //se se crea la conexion contra la url obtenida en el parametro0
         HttpClient httpClient = new DefaultHttpClient(httpParameters);
         HttpPost httpPost = new HttpPost(params[0]);
 
@@ -63,7 +67,9 @@ import java.util.List;
             nameValuePairs.add(new BasicNameValuePair("password", params[2]));
             httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
+            //Se hace que httpClient ejecute la consulta
             HttpResponse response = httpClient.execute(httpPost);
+            //e inmediatamente se obtiene el resultado recibido
             jsonResult = inputStreamToString(response.getEntity().getContent()).toString();
 
         } catch (ClientProtocolException e) {
@@ -72,6 +78,9 @@ import java.util.List;
             e.printStackTrace();
         }
         Log.d("PRUEBA","el JSON OBTENIDO EN DOINBACKGROUND: "+jsonResult);
+        //se devuelve el resultado recibido por el servidor para seguir procesando el resultado
+        //en onPostExecute.
+
         return jsonResult;
     }
     @Override
@@ -82,43 +91,50 @@ import java.util.List;
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
 
-        System.out.println("Resulted Value: " + result);
+
+        //segun lo que hayamos obtenido como respuesta del servidor:
+
+        Log.d("PRUEBAS","SE HA DEVUELTO DEL SERVIDOR: "+result);
+
         if(result.equals("") || result == null){
-            Toast.makeText(activityUI, "Server connection failed", Toast.LENGTH_LONG).show();
+            Toast.makeText(activityUI, "La conexión no ha sido correcta", Toast.LENGTH_LONG).show();
             return;
         }
-
+        //del json solo nos interesa si es 1 o 0, por eso lo parseamos
         int jsonResult = returnParsedJsonObject(result);
+
+        //si es 0 , en la activityUi, que es desde donde lanzamos este async, mostramos un Toast
         if(jsonResult == 0){
 
             Toast.makeText(activityUI, "no validos", Toast.LENGTH_LONG).show();
 
              tvUserdelUI = (TextView) activityUI.findViewById(R.id.tvUser);
-            enteredUsername = (String) tvUserdelUI.getText();
+            enteredUsername = (String) tvUserdelUI.getText().toString();
 
-            Log.d("PRUEBA","Se instancia ConexionCorrecta pasando enteredUsername: "+enteredUsername);
-            fragmentCE = ConexionCorrecta.newInstance(enteredUsername,"ERROR USUARIO O PASSWORD NO REGISTRADOS");
+            Log.d("PRUEBA","El usuario/contraseña no son correctos "+enteredUsername);
+            //fragmentCE = ConexionCorrecta.newInstance(enteredUsername,"ERROR USUARIO O PASSWORD NO REGISTRADOS");
 
-            this.activityUI.getFragmentManager().beginTransaction()
-                    .replace(R.id.contenedor,fragmentCE)
-                    .addToBackStack(null)
-                    .commit();
+            //this.activityUI.getFragmentManager().beginTransaction()
+              //      .replace(R.id.contenedor,fragmentCE)
+                //    .addToBackStack(null)
+                  //  .commit();
             return;
         }
         if(jsonResult == 1){
-            //Intent intent = new Intent(activityUI, ConexionExitosa.class);
-            //intent.putExtra("USERNAME", enteredUsername);
-            //intent.putExtra("MESSAGE", "You have been successfully login");
+            Toast.makeText(activityUI, "Logeado con exito", Toast.LENGTH_LONG).show();
             tvUserdelUI = (TextView) activityUI.findViewById(R.id.tvUser);
             enteredUsername = tvUserdelUI.getText().toString();
             Log.d("PRUEBA","_______________________________________Se instancia ConexionCorrecta pasando enteredUsername: "+enteredUsername);
             //aqui una actividad podria iniciar otra nueva activity con startactivity y pasarle el intent
             //pero al estar en fragrment parece que no sale:
             Log.d("PRUEBA","sE INStancia el FRAGMENT CONEXIONCORRECTA Con param1 : "+enteredUsername);
+
+            //Se instancia el fragmento ConexionCorrecta, haciendo .newInstance, podemos pasarle argumentos al fragmento.
             fragmentCE = ConexionCorrecta.newInstance(enteredUsername,"Identificado correctamente");
-        Toast.makeText(activityUI,"identificacion correcta",Toast.LENGTH_SHORT).show();
+
+
             try {
-                Thread.sleep(2000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -143,6 +159,9 @@ import java.util.List;
         return answer;
     }
 
+
+
+    //devuelve 1 o 0 , segun el json sea success:0 o success:1
     private int returnParsedJsonObject(String result){
 
         JSONObject resultObject = null;

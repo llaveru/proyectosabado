@@ -1,6 +1,7 @@
 package com.example.hpasarin.sistemalogin2;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -38,6 +39,9 @@ public class Login extends Fragment {
                 enteredUsername = tvUser.getText().toString();
                 enteredPassword = tvPass.getText().toString();
 
+
+                //comprobamos que esten rellenos los dos campos, password y contraseña
+
                 if(enteredUsername.equals("") || enteredPassword.equals("")){
                     Toast.makeText(getActivity(), "Usuario o contraseña son obligatorios", Toast.LENGTH_LONG).show();
                     return;
@@ -48,10 +52,13 @@ public class Login extends Fragment {
                 }
 
 
-                // request authentication with remote server4
+                // hacemos la peticion para logearnos al servidor
                 AsyncDataClass asyncRequestObject = new AsyncDataClass(getActivity());
                 asyncRequestObject.execute(serverUrl, enteredUsername, enteredPassword);
                 Log.d("PRUEBA", "SE INICIA LA TAREA ASINCRONA, AL ACABAR DEBE CAMBIAR EL FRAGMENT");
+
+
+
 
 
             }
