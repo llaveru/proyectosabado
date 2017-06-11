@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceCategory android:title="Tipo de mapa">
+    <ListPreference
+        android:key="opcionTipoMapa"
+        android:title="Tipo de mapa"
+        android:dialogTitle="Seleccionar tipo de mapa:"
+        android:summary="Tipo de map"
+        android:entries="@array/mapas"
+        android:entryValues="@array/codigoMapas"/>
+
+
+</PreferenceCategory>
+</PreferenceScreen>

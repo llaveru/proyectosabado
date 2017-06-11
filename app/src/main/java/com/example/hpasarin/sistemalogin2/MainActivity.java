@@ -2,6 +2,7 @@ package com.example.hpasarin.sistemalogin2;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -118,9 +119,10 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
             fragment= new FragmentObtenerLista();
             fragmentTransaction = true;
-        }  else if (id == R.id.nav_manage) {
+        }  else if (id == R.id.nav_preferencias) {
+            startActivity(new Intent(this,Preferencias.class));
 
-        }  else if (id == R.id.nav_send) {
+        }  else if (id == R.id.nav_preferenciasPorDefecto) {
 
         }
 

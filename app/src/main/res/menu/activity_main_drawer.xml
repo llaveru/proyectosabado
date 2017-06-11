@@ -14,6 +14,14 @@
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
             android:title="Configuracion" />
+        <item
+            android:id="@+id/nav_preferencias"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Preferencias" />
+        <item
+            android:id="@+id/nav_preferenciasPorDefecto"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Restaurar preferencias" />
     </group>
 
     <item android:title="Soporte">
