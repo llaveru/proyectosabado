@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -123,7 +124,9 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(this,Preferencias.class));
 
         }  else if (id == R.id.nav_preferenciasPorDefecto) {
-
+            //PONGO COMO TIPO DE MAPA EL QUE QUIERA PONER POR DEFECTO
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            prefs.getString("opcionTipoMapa","SAT");
         }
 
         if (fragmentTransaction){

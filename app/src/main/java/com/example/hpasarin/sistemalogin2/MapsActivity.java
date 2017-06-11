@@ -3,6 +3,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
@@ -10,10 +11,12 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -49,6 +52,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Random;
+
 
 import static com.example.hpasarin.sistemalogin2.R.id.map;
 
@@ -243,7 +247,27 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap map) {
         mapa = map;
 
-        mapa.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        //mapa.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        //pongo el tipo de mapa que tengo guardado en preferencias
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        String mapaEnPreferencias =prefs.getString("opcionTipoMapa","SAT");
+        switch (mapaEnPreferencias){
+            case "SAT" :
+                mapa.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                break;
+            case "CAL" :
+                mapa.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                break;
+            case "REL" :
+                mapa.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+                break;
+            default:
+                mapa.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                break;
+        }
+
+
         mapa.setMinZoomPreference(5);
 
 
