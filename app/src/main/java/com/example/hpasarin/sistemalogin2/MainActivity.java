@@ -19,26 +19,40 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity        implements NavigationView.OnNavigationItemSelectedListener {
+
     SharedPreferences prefs;
     //cargar configuración aplicación Android usando SharedPreferences
     public void cargarConfiguracion()
     {
         //si hay fichero de configuracion, accedo a sus recursos.
-         prefs = getSharedPreferences("configaplicacion", Context.MODE_APPEND);
+        //prefs = getSharedPreferences("configaplicacion", Context.MODE_APPEND);
+        prefs=PreferenceManager.getDefaultSharedPreferences(this);
+
         //devolvera 99 si no encuentra ningun par key-value para id seria el valor por defecto
-        Log.d("PRUEBA",prefs.getAll().toString());
-        this.setTitle("identificado como "+(prefs.getString("id", "99")));
+        Log.d("PRUEBA","TENGO ESTAS PREFERENCIAS"+prefs.getAll().toString());
+        if (prefs.getString("usuarioActual","99").equals("99")){
+            Toast.makeText(getApplicationContext(),"Debe logearse para acceder a geolocalización.",Toast.LENGTH_SHORT).show();
+        }
+
+        this.setTitle("identificado como "+(prefs.getString("usuarioActual", "99")));
         //opUbicacionFichero.setChecked(prefs.getBoolean("GuardarSDCard", true));
     }
 
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        //buen sitio para cargar preferencias.
+        cargarConfiguracion();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        cargarConfiguracion();
+
         setContentView(R.layout.activity_main);
         cargarConfiguracion();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -130,6 +144,7 @@ public class MainActivity extends AppCompatActivity
 
             //PONGO COMO TIPO DE MAPA EL QUE QUIERA PONER POR DEFECTO
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
             prefs.getString("opcionTipoMapa","SAT");
             Snackbar.make(this.findViewById(R.id.contenedor), "Se restablecen las opciones por defecto", Snackbar.LENGTH_LONG).setAction("Action", null).show();
 

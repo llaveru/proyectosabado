@@ -82,7 +82,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     ArrayList<LatLng> arrayPuntosRuta;
     CameraUpdate actualizacionCamara;
     CameraPosition cameraPosition;
-
+    int colorRuta=0;
 
 
     Runnable updateMarker = new Runnable() {
@@ -125,6 +125,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     cameraPosition = new CameraPosition.Builder()
                             .target(arrayPuntosRuta.get(0))
                             .zoom(20)
+                            //.zoom(PreferenceManager.getDefaultSharedPreferences(getParent()).getInt("zoom",20))
                             .bearing(300)
                             .tilt(30)
                             .build();
@@ -132,10 +133,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     mapa.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
                     //una vez tengo todos los puntos en el arrayPuntosRuta dibujo la polilinea
+                    //con el color que tengo en las preferencias guardado
+
+                    if (PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("opcionColorRuta",null).equals("ROJ")){
+                         colorRuta= Color.RED;
+                    }else if (PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("opcionColorRuta",null).equals("AZU")){
+                        colorRuta=Color.BLUE;
+                    } else if (PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("opcionColorRuta",null).equals("VER")){
+                        colorRuta=Color.GREEN;
+                    } else colorRuta=Color.BLACK;
+
                     Polyline ruta = mapa.addPolyline(
                             new PolylineOptions()
                                     .addAll(arrayPuntosRuta)
-                                    .color(Color.BLACK)
+                                    .color(colorRuta)
+                                  //  .color(PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getInt("color",Color.BLACK))
                                     .width(8)
                     );
 

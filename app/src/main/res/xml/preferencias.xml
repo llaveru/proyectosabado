@@ -18,6 +18,7 @@
 
 
         <ListPreference
+            android:summary="color"
             android:icon="@android:drawable/ic_menu_preferences"
             android:key="opcionColorRuta"
             android:title="Color de la ruta"
@@ -27,6 +28,7 @@
 
         <ListPreference
             android:icon="@android:drawable/ic_menu_zoom"
+            android:summary="nivel de zoom"
             android:key="opcionZoom"
             android:title="Nivel de Zoom"
             android:dialogTitle="Seleccione el zoom del mapa"
@@ -34,6 +36,17 @@
             android:entryValues="@array/codigoZoom"
             />
 
+    <EditTextPreference
+        android:icon="@android:drawable/ic_menu_manage"
+        android:key="usuarioActual"
+        android:title="usuario actual"
+        android:enabled="true"
+        />
 
     </PreferenceCategory>
+
+
+
+
+
 </PreferenceScreen>

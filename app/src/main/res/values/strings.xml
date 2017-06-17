@@ -15,8 +15,8 @@
         <item>Satelite</item>
         <item>Relieve</item>
         <item>Calles</item>
-
         </string-array>
+
     <string-array name="codigoMapas">
         <item>SAT</item>
         <item>REl</item>
@@ -29,11 +29,12 @@
         <item>Verde</item>
         <item>Negro</item>
     </string-array>
+
     <string-array name="codigoColores">
-        <item>red</item>
-        <item>blue</item>
-        <item>green</item>
-        <item>black</item>
+        <item>ROJ</item>
+        <item>AZU</item>
+        <item>VER</item>
+        <item>NEG</item>
     </string-array>
 
     <string-array name="zoom">
@@ -43,6 +44,7 @@
         <item>15</item>
         <item>20</item>
     </string-array>
+
     <string-array name="codigoZoom">
         <item>2</item>
         <item>5</item>

@@ -120,9 +120,9 @@ public class FragmentObtenerLista extends Fragment {
         //del gestor con el nombre  del usuario que está logueado como segundo parametro.
 
         //si hay fichero de configuracion, accedo a sus recursos. para obtener el segundo parametro
-        SharedPreferences prefs = getActivity().getSharedPreferences("configaplicacion", Context.MODE_APPEND);
-
-        tarea.execute(ruta,prefs.getString("id","1"));
+        //SharedPreferences prefs = getActivity().getSharedPreferences("configaplicacion", Context.MODE_APPEND);
+        SharedPreferences prefes = ((MainActivity) getActivity()).prefs;
+        tarea.execute(ruta,prefes.getString("usuarioActual","1")); //si no hay id en las prefs, id=3
         return vista;
     }
 
