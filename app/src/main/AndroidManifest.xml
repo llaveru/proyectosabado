@@ -28,8 +28,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActividadPreferencias">
-
+        <!-- REVISAR: se tubo que añadir a la activity referencias en el  el theme no action bar para poner cortinilla  android:theme="@style/AppTheme.NoActionBar"-->
+        <activity android:name=".ActividadPreferencias"
+            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -49,7 +50,9 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" />
+            android:label="@string/title_activity_maps"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
     </application>
 
 </manifest>

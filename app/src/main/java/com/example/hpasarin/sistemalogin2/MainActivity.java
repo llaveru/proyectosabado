@@ -98,6 +98,8 @@ public class MainActivity extends AppCompatActivity        implements Navigation
         return true;
     }
 
+
+    //para resolver los clicks menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -109,7 +111,9 @@ public class MainActivity extends AppCompatActivity        implements Navigation
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            //arranca activity de preferencias:
+            startActivity(new Intent(this,ActividadPreferencias.class));
+
         }else if (id==R.id.action_salir){
             finish();
         }
@@ -167,8 +171,11 @@ public class MainActivity extends AppCompatActivity        implements Navigation
     protected void onDestroy() {
         super.onDestroy();
 
-        //AQUI TENGO QUE GUARDAR LO QUE TENGA EN PREFERENCIAS, SINO DESAPARECE
 
-        Log.d("PRUEBA","en prefs, tengo guardaddo: "+getPreferences(Context.MODE_APPEND).getAll().toString());
     }
+
+
+
+
+
 }
