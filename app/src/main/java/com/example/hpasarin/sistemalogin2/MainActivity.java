@@ -121,12 +121,18 @@ public class MainActivity extends AppCompatActivity
             fragment= new FragmentObtenerLista();
             fragmentTransaction = true;
         }  else if (id == R.id.nav_preferencias) {
-            startActivity(new Intent(this,Preferencias.class));
-
+            //startActivity(new Intent(this,Preferencias.class));
+            //arranco una activiti en vez de hacer una transaccion, porque
+            //el fragment está dentro de la clase ActividadPreferencias, no es
+            //independiente
+            startActivity(new Intent(this,ActividadPreferencias.class));
         }  else if (id == R.id.nav_preferenciasPorDefecto) {
+
             //PONGO COMO TIPO DE MAPA EL QUE QUIERA PONER POR DEFECTO
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             prefs.getString("opcionTipoMapa","SAT");
+            Snackbar.make(this.findViewById(R.id.contenedor), "Se restablecen las opciones por defecto", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+
         }
 
         if (fragmentTransaction){

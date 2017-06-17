@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorFondoDrawer"
     tools:context="com.example.hpasarin.sistemalogin2.Preferencias">
 
 </android.support.constraint.ConstraintLayout>

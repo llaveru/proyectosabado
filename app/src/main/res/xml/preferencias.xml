@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-<PreferenceCategory android:title="Tipo de mapa">
+
+<PreferenceCategory android:title="Preferencias de las rutas:">
+
+
     <ListPreference
+        android:icon="@android:drawable/ic_menu_mapmode"
         android:key="opcionTipoMapa"
         android:title="Tipo de mapa"
         android:dialogTitle="Seleccionar tipo de mapa:"
-        android:summary="Tipo de map"
+        android:summary="Tipo de mapa"
         android:entries="@array/mapas"
         android:entryValues="@array/codigoMapas"/>
 
 
-</PreferenceCategory>
+
+
+
+        <ListPreference
+            android:icon="@android:drawable/ic_menu_preferences"
+            android:key="opcionColorRuta"
+            android:title="Color de la ruta"
+            android:dialogTitle="Seleccione un color:"
+            android:entries="@array/colores"
+            android:entryValues="@array/codigoColores"/>
+
+        <ListPreference
+            android:icon="@android:drawable/ic_menu_zoom"
+            android:key="opcionZoom"
+            android:title="Nivel de Zoom"
+            android:dialogTitle="Seleccione el zoom del mapa"
+            android:entries="@array/zoom"
+            android:entryValues="@array/codigoZoom"
+            />
+
+
+    </PreferenceCategory>
 </PreferenceScreen>
