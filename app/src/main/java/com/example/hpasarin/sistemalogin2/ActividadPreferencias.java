@@ -69,6 +69,7 @@ public void addCortinilla()
     NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
     assert navigationView != null;
     navigationView.setNavigationItemSelectedListener(this);
+a
 }
 
 */
