@@ -83,7 +83,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     CameraUpdate actualizacionCamara;
     CameraPosition cameraPosition;
     int colorRuta=0;
-
+    int nivelZoom=20;
 
     Runnable updateMarker = new Runnable() {
         @Override
@@ -122,9 +122,28 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     //llevo la camara a la posición mas actual. Primero creo un objeto
                     //cameraPosition, que luego se lo paso al metodo animateCamera
 
+                    switch (PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("opcionZoom",null)){
+                        case "2":
+                            nivelZoom=2;
+                            break;
+                        case "5":
+                            nivelZoom=4;
+                            break;
+                        case "10":
+                            nivelZoom=6;
+                            break;
+                        case "15":
+                            nivelZoom=8;
+                            break;
+                        default:
+                            nivelZoom=20;
+                            break;
+                    }
                     cameraPosition = new CameraPosition.Builder()
                             .target(arrayPuntosRuta.get(0))
-                            .zoom(20)
+
+
+                            .zoom(nivelZoom)
                             //.zoom(PreferenceManager.getDefaultSharedPreferences(getParent()).getInt("zoom",20))
                             .bearing(300)
                             .tilt(30)
@@ -147,7 +166,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             new PolylineOptions()
                                     .addAll(arrayPuntosRuta)
                                     .color(colorRuta)
-                                  //  .color(PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getInt("color",Color.BLACK))
+
                                     .width(8)
                     );
 
@@ -156,7 +175,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                         Log.d("prueba","el ultimo punto es: "+arrayPuntosRuta.size());
                         //el último parámetro es el zoom, 1 es lejano 20 cercano
-                        actualizacionCamara =CameraUpdateFactory.newLatLngZoom(arrayPuntosRuta.get(0),16);
+                        actualizacionCamara =CameraUpdateFactory.newLatLngZoom(arrayPuntosRuta.get(arrayPuntosRuta.size()-1),16);
                         mapa.animateCamera(actualizacionCamara);
 
 

@@ -40,7 +40,7 @@
         android:icon="@android:drawable/ic_menu_manage"
         android:key="usuarioActual"
         android:title="usuario actual"
-        android:enabled="true"
+        android:enabled="false"
         />
 
     </PreferenceCategory>

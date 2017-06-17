@@ -6,11 +6,17 @@
     android:layout_height="match_parent"
     android:id="@+id/contenedor"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    android:background="@color/fondoPrincipal"
+    android:background="@drawable/fondodegradado"
+
     tools:context="com.example.hpasarin.sistemalogin2.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
 
+        android:src="@drawable/quovadis3d3"
+        android:scaleType="centerCrop" />
  <!--   <FrameLayout
         android:id="@+id/contenedorDeFrames"
         android:layout_width="match_parent"
