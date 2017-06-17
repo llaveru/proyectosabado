@@ -1,0 +1,33 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorFondoDrawer"
+    android:orientation="vertical"
+
+    tools:context="com.example.hpasarin.sistemalogin2.ObtenerImei">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+
+        android:textSize="80px"
+        android:textColor="#fff"
+        android:id="@+id/tvLabelIMEI"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="IMEI:" />
+    <TextView
+
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:textSize="80px"
+        android:textColor="@color/colorTextoBoton"
+        android:id="@+id/tvIMEI"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="IMEI" />
+
+</FrameLayout>

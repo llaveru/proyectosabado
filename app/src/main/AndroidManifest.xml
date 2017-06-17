@@ -3,6 +3,8 @@
     package="com.example.hpasarin.sistemalogin2">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -28,10 +30,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!-- REVISAR: se tubo que añadir a la activity referencias en el  el theme no action bar para poner cortinilla  android:theme="@style/AppTheme.NoActionBar"-->
-        <activity android:name=".ActividadPreferencias"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+        <!-- REVISAR: se tubo que añadir a la activity referencias en el  el theme no action bar para poner cortinilla  android:theme="@style/AppTheme.NoActionBar" -->
+        <activity
+            android:name=".ActividadPreferencias"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -51,8 +53,7 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

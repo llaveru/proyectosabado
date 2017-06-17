@@ -15,7 +15,7 @@
         <item>Satelite</item>
         <item>Relieve</item>
         <item>Calles</item>
-        </string-array>
+    </string-array>
 
     <string-array name="codigoMapas">
         <item>SAT</item>
@@ -52,5 +52,6 @@
         <item>15</item>
         <item>20</item>
     </string-array>
+    <string name="title_activity_main2">Main2Activity</string>
 
 </resources>

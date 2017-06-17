@@ -4,23 +4,23 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/face"
             android:title="Logearse" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/car_connected"
             android:title="Vehiculos asociados" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Configuracion" />
+            android:id="@+id/nav_IMEI"
+            android:icon="@android:drawable/ic_menu_help"
+            android:title="Obtener id vehiculo" />
         <item
             android:id="@+id/nav_preferencias"
             android:icon="@drawable/ic_menu_manage"
             android:title="Preferencias" />
         <item
             android:id="@+id/nav_preferenciasPorDefecto"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@android:drawable/ic_menu_preferences"
             android:title="Restaurar preferencias" />
     </group>
 
@@ -29,7 +29,7 @@
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="Ayuda" />
         </menu>
     </item>
 

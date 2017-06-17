@@ -138,6 +138,11 @@ public class MainActivity extends AppCompatActivity        implements Navigation
         } else if (id == R.id.nav_gallery) {
             fragment= new FragmentObtenerLista();
             fragmentTransaction = true;
+        } else if (id == R.id.nav_IMEI) {
+            fragment= new ObtenerImei();
+            fragmentTransaction = true;
+        }  else if (id == R.id.nav_send) {
+            return true;
         }  else if (id == R.id.nav_preferencias) {
             //startActivity(new Intent(this,Preferencias.class));
             //arranco una activiti en vez de hacer una transaccion, porque
@@ -156,6 +161,8 @@ public class MainActivity extends AppCompatActivity        implements Navigation
 
         if (fragmentTransaction){
             getSupportFragmentManager().beginTransaction()
+                    //para que no queden memorizadas y al dar boton atras vayan a ellas
+                    .addToBackStack(null)
                     .replace(R.id.contenedor,fragment)
                     .commit();
             item.setChecked(true);
