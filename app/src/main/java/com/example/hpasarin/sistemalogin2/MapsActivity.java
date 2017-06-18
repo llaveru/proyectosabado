@@ -126,15 +126,34 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         case "2":
                             nivelZoom=2;
                             break;
-                        case "5":
+                        case "4":
                             nivelZoom=4;
                             break;
+                        case "5":
+                            nivelZoom=5;
+                            break;
                         case "10":
-                            nivelZoom=6;
+                            nivelZoom=10;
                             break;
                         case "15":
-                            nivelZoom=8;
+                            nivelZoom=15;
                             break;
+                        case "16":
+                            nivelZoom=16;
+                            break;
+                        case "17":
+                            nivelZoom=17;
+                            break;
+                        case "18":
+                            nivelZoom=18;
+                            break;
+                        case "19":
+                            nivelZoom=19;
+                            break;
+                        case "20":
+                            nivelZoom=20;
+                            break;
+
                         default:
                             nivelZoom=20;
                             break;
@@ -175,7 +194,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                         Log.d("prueba","el ultimo punto es: "+arrayPuntosRuta.size());
                         //el último parámetro es el zoom, 1 es lejano 20 cercano
-                        actualizacionCamara =CameraUpdateFactory.newLatLngZoom(arrayPuntosRuta.get(arrayPuntosRuta.size()-1),16);
+                        actualizacionCamara =CameraUpdateFactory.newLatLngZoom(arrayPuntosRuta.get(arrayPuntosRuta.size()-1),nivelZoom);
                         mapa.animateCamera(actualizacionCamara);
 
 

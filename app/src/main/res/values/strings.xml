@@ -39,17 +39,25 @@
 
     <string-array name="zoom">
         <item>2</item>
+        <item>4</item>
         <item>5</item>
         <item>10</item>
         <item>15</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
         <item>20</item>
     </string-array>
 
     <string-array name="codigoZoom">
         <item>2</item>
+        <item>4</item>
         <item>5</item>
         <item>10</item>
         <item>15</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
         <item>20</item>
     </string-array>
     <string name="title_activity_main2">Main2Activity</string>
