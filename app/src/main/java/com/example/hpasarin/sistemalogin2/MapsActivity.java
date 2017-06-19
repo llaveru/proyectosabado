@@ -159,6 +159,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             break;
                     }
                     cameraPosition = new CameraPosition.Builder()
+                            //va con la camara al
                             .target(arrayPuntosRuta.get(0))
 
 
@@ -194,6 +195,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                         Log.d("prueba","el ultimo punto es: "+arrayPuntosRuta.size());
                         //el último parámetro es el zoom, 1 es lejano 20 cercano
+                        //va con la camara a la ultima posicion
                         actualizacionCamara =CameraUpdateFactory.newLatLngZoom(arrayPuntosRuta.get(arrayPuntosRuta.size()-1),nivelZoom);
                         mapa.animateCamera(actualizacionCamara);
 

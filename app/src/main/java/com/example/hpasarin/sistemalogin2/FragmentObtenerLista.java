@@ -144,6 +144,9 @@ class Tarea extends AsyncTask<String,Void,String> {
     String line="";
     URL url;
 
+
+
+    //obtengo en el constructor la actividad que a invocado, para tener acceso a sus views.
     public Tarea(MainActivity mainActivity) {
         this.actividadUI= mainActivity;
     }
@@ -252,6 +255,8 @@ class Tarea extends AsyncTask<String,Void,String> {
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
         try {
+
+            //de la cadena de texto recibida, la convierto en arrayJson
             arrayJSON = new JSONArray(s);
 
 
@@ -259,10 +264,13 @@ class Tarea extends AsyncTask<String,Void,String> {
             vehiculos_data = new ArrayList<>();
 
             for (int i=0;i<arrayJSON.length();i++){
+                //obtengo el objeto JSON que tengo en la posicion arrayJSON[I]
                 linea =arrayJSON.getJSONObject(i);
                 Log.d("RESULTADO", "Se recogio correctamente id_vehiculo: " + linea.get("id_vehiculo"));
                 //    vehiculos.add(linea.getString("id_vehiculo"));
                 Random genAlea = new Random();
+
+                //ANTES Generaba icono aleatorio, ahora no. depende del icono que haya elegido en la base de datos
                 switch (linea.getInt("icono")){
                     case 1:
                         vehiculos_data.add(new Vehiculo(R.drawable.busnegro,linea.getString("nombre_linea"),linea.getString("tipo"),linea.getString("id_vehiculo")));

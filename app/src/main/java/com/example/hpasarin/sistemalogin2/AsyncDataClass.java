@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * Created by hpasarin on 05/06/2017.
  */
-
+//mejor usar nuevas clases tipo HTTPURLCONNECTION.
  class AsyncDataClass extends AsyncTask<String, Void, String> {
     Fragment fragmentCE;
     Activity activityUI;
@@ -120,6 +120,8 @@ import java.util.List;
                   //  .commit();
             return;
         }
+        //si es 1 es que se logeo con exíto. Se pasan a ConexionCorrecta (fragmento) unos argumentos para que muestre mensajes
+        //de conexión correcta.
         if(jsonResult == 1){
             Toast.makeText(activityUI, "Logeado con exito", Toast.LENGTH_LONG).show();
             tvUserdelUI = (TextView) activityUI.findViewById(R.id.tvUser);
@@ -144,6 +146,10 @@ import java.util.List;
                     .commit();
         }
     }
+
+    //se procesa el inputStream para convertirlo en un String, se separa esta parte en un metodo para
+    //no tenerlotodo junto.
+
     private StringBuilder inputStreamToString(InputStream is) {
         String rLine = "";
         StringBuilder answer = new StringBuilder();

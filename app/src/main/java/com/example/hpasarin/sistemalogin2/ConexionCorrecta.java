@@ -51,7 +51,7 @@ public class ConexionCorrecta extends Fragment {
         ConexionCorrecta fragment = new ConexionCorrecta();
 
         Log.d("PRUEBA","SE crea ConexionCorrecta (el fragment)");
-//empaquetamos los parametros en un bundle
+        //empaquetamos los parametros en un bundle
         //y seteamos el fragment con estos argumentos llegados.
          args = new Bundle();
         args.putString(ARG_PARAM1, param1);
@@ -97,6 +97,8 @@ public class ConexionCorrecta extends Fragment {
 
         tvUsuarioLogeado = (TextView) vista.findViewById(R.id.tvUser);
         tvUsuariocorrecto = (TextView) vista.findViewById(R.id.tvLogeadoComo);
+
+        //guardamos el usuario para no tener que introducirlo siempre en preferencias.
         guardarUser();
         //se pone el nombre de la persona logeada en la nav-header_main
 //        tvUsuarioLogeado.setText(prefs.getString("id","haga login para ver sus vehiculos"));
